@@ -1,1 +1,48 @@
-<h2 class="text-center">Signup to Test-Cafe!</h2>
+<!-- Start page content -->   
+<div class="container">
+    <div class="row my-4 my-lg-5">
+         <div class="col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3 text-center">
+              <img src="./assets/images/test-cafe-brown.png" alt="signup" class="img-fluid">
+              <p class="font-20 semi-font fables-main-text-color mt-2 mb-lg-4">Register</p>
+              <form>
+                 <div class="form-group"> 
+                     <div class="input-icon">
+                         <span class="fables-iconemail fables-input-icon font-14"></span>
+                         <input type="email" [(ngModel)]="registerUserData.email" name="email" class="form-control rounded-0 py-3 pl-5 font-13 sign-register-input"  placeholder="Email"> 
+                     </div>
+                   
+                 </div>
+                 <div class="form-group"> 
+                     <div class="input-icon">
+                        <span class="fables-iconpassword fables-input-icon font-18"></span>
+                        <input type="password" [(ngModel)]="registerUserData.password" name="password" class="form-control rounded-0 py-3 pl-5 font-13 sign-register-input" placeholder="Password">
+                     </div>
+                   
+                 </div> 
+                 <button type="button" (click)="registerUser()" class="btn btn-block rounded-0 white-color fables-main-hover-background-color fables-second-background-color font-16 semi-font py-3">Register</button>
+               </form>
+         </div>
+    </div>
+  </div>   
+  <!-- /End page content -->
+
+  <!--Modal-->
+<div class="modal" #signupSuccess>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">User Register</h5>
+                <button type="button" class="close" data-dismiss="modal">
+                    <span>&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p class="lead">User successfully registered!</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div> 
+  
