@@ -3,11 +3,14 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HttpClientModule} from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { AuthService } from './services/auth.service';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
+import { AuthGuard } from './guard/auth.guard';
+import { TokenInterceptorService } from './services/token-interceptor.service';
+
 
 @NgModule({
   declarations: [
@@ -23,7 +26,13 @@ import { LoadingSpinnerComponent } from './components/loading-spinner/loading-sp
     FormsModule,
     HttpClientModule
   ],
-  providers: [AuthService],
+  providers: [AuthService, AuthGuard,
+  {
+    provide: HTTP_INTERCEPTORS,
+    useClass: TokenInterceptorService,
+    multi: true
+  }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

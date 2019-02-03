@@ -1,6 +1,7 @@
 //1. import required packages
 const express = require('express');
 const bodyParser = require('body-parser');
+const morgan = require('morgan');
 const api = require('./routes/api');
 const app = express();
 //Use cors for Cross Origin Request Service
@@ -11,11 +12,12 @@ app.use(cors());
 const PORT = 3000;
 
 //3. Define middlewares
+app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use('/api', api);
 
 //4. Define routes for server
-app.get('/', function(req, res){
+app.get('/', function(req, res){  
     res.send('Response from the server');
 });
 

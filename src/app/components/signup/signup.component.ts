@@ -1,5 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
+import { Observable } from 'rxjs';
+
 
 declare var $:any;
 @Component({
@@ -20,6 +22,7 @@ export class SignupComponent implements OnInit {
   }
 
   registerUser(){   
+    console.log('registerUserData: '+this.registerUserData);
     this._authService.registerUser(this.registerUserData)
       .subscribe(
           res => {

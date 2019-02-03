@@ -1,1 +1,21 @@
 <h4 class="text-center">Dashboard Component</h4>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Email</th>
+                        <th>Password</th>
+                    </tr>
+                    <tr *ngFor="let user of registeredUsers">
+                        <td>{{user._id}}</td>
+                        <td>{{user.email}}</td>
+                        <td>{{user.password}}</td>
+                    </tr>
+                </thead>
+            </table>            
+        </div>
+    </div>
+</div>

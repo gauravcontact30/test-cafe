@@ -32,12 +32,10 @@
                  </div>
                  <div class="col-12 col-md-2 col-lg-3 pr-md-0 icons-header-mobile">
                      
-                  <div class="fables-header-icons">
-                       <a href="#" class="open-search fables-third-text-color right  top-header-link px-3 px-md-2 px-lg-4 fables-second-hover-color border-0 max-line-height">
-                          <span class="fables-iconsearch-icon"></span>
-                      </a> 
-                      <a routerLink="/signup" class="fables-third-text-color fables-second-hover-color font-13 top-header-link px-3 px-md-2 px-lg-4 max-line-height"><i class="fa fa-user-plus"></i></a>
-                       <a routerLink="/signin" class="fables-third-text-color fables-second-hover-color font-13 top-header-link px-3 px-md-2 px-lg-4 max-line-height"><i class="fa fa-lock"></i></a>                      
+                  <div class="fables-header-icons">                      
+                      <a routerLink="/signup" *ngIf="!_authService.loggedIn()" class="fables-third-text-color fables-second-hover-color font-13 top-header-link px-3 px-md-2 px-lg-4 max-line-height"><i class="fa fa-user-plus"></i></a>
+                       <a routerLink="/signin" *ngIf="!_authService.loggedIn()" class="fables-third-text-color fables-second-hover-color font-13 top-header-link px-3 px-md-2 px-lg-4 max-line-height"><i class="fa fa-lock"></i></a>  
+                       <a routerLink="" *ngIf="_authService.loggedIn()" class="fables-third-text-color fables-second-hover-color font-13 top-header-link px-3 px-md-2 px-lg-4 max-line-height" (click)="_authService.logoutUser()"><i class="fa fa-sign-out"></i></a>                    
                   </div>
                  </div>
              </div>
